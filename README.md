@@ -14,16 +14,28 @@ Incluye **autenticación JWT** para proteger rutas críticas.
 - **Eliminar tópicos:** `DELETE /topics/{id}` (requiere token)  
 
 ---
-##Seguridad
+## Seguridad
 Endpoints de creación y eliminación requieren Bearer token en el header:
 Authorization: Bearer <JWT>
 
-##Base de datos
+---
+## Base de datos
 
 1. Compatible con H2, MySQL o PostgreSQL.
 2. Para pruebas rápidas, se puede usar H2 en memoria:
 3. jdbc:h2:mem:forodb
+   
 ---
+
+### Pruebas con Insomnia
+-Registrar usuario → POST /auth/register
+-Login → POST /auth/login → copiar token
+-Crear tópico → POST /topics con token
+-Listar tópicos → GET /topics
+-Eliminar tópico → DELETE /topics/{id} con token
+
+---
+
 
 ## Modelo de Tópico
 ```json
@@ -35,10 +47,3 @@ Authorization: Bearer <JWT>
 }
 
 
-
-🔹 Pruebas con Insomnia
--Registrar usuario → POST /auth/register
--Login → POST /auth/login → copiar token
--Crear tópico → POST /topics con token
--Listar tópicos → GET /topics
--Eliminar tópico → DELETE /topics/{id} con token
