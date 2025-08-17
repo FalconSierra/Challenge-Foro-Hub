@@ -5,7 +5,7 @@ Incluye **autenticación JWT** para proteger rutas críticas.
 
 ---
 
-## 🔹 Funcionalidades
+## Funcionalidades
 
 - **Registro de usuarios:** `POST /auth/register`  
 - **Login y JWT:** `POST /auth/login` → devuelve token Bearer  
@@ -14,8 +14,18 @@ Incluye **autenticación JWT** para proteger rutas críticas.
 - **Eliminar tópicos:** `DELETE /topics/{id}` (requiere token)  
 
 ---
+##Seguridad
+Endpoints de creación y eliminación requieren Bearer token en el header:
+Authorization: Bearer <JWT>
 
-## 🔹 Modelo de Tópico
+##Base de datos
+
+1. Compatible con H2, MySQL o PostgreSQL.
+2. Para pruebas rápidas, se puede usar H2 en memoria:
+3. jdbc:h2:mem:forodb
+---
+
+## Modelo de Tópico
 ```json
 {
   "userId": 1,
@@ -24,15 +34,7 @@ Incluye **autenticación JWT** para proteger rutas críticas.
   "course": "Java Básico"
 }
 
-🔹 Seguridad
-Endpoints de creación y eliminación requieren Bearer token en el header:
-Authorization: Bearer <JWT>
 
-🔹 Base de datos
-
-1. Compatible con H2, MySQL o PostgreSQL.
-2. Para pruebas rápidas, se puede usar H2 en memoria:
-3. jdbc:h2:mem:forodb
 
 🔹 Pruebas con Insomnia
 -Registrar usuario → POST /auth/register
